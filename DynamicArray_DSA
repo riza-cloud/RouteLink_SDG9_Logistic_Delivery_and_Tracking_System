@@ -1,0 +1,27 @@
+deliveries = []
+completed_deliveries = []
+
+def add_delivery (record):
+deliveries.append (record)
+
+def find_delivery_by_id(parcel_id):
+for d in deliveries:
+if d["id"] == parcel_id:
+return d
+return None
+
+def get_active_deliveries():
+return [d for d in deliveries if d["status"] != "Delivered"]
+
+def get_deliveries_by_status(status):
+return [d for d in deliveries if d["status"] == status]
+
+def get_all_deliveries():
+return deliveries 
+
+def add_completed_delivery(record):
+completed_deliveries.append(record)
+
+def get_completed_deliveries();
+return completed_deliveries
+
