@@ -1,10 +1,6 @@
 from collections import deque
 from datetime import datetime
 
-# -------------------------------
-# DATA STRUCTURES
-# -------------------------------
-
 # Dynamic array for storing delivery records
 # Each delivery = {id, sender, receiver, destination, status}
 deliveries = []
@@ -44,9 +40,8 @@ status_options = {
     "4": "Delivered"
 }
 
-# -------------------------------
+
 # SORTING ALGORITHMS
-# -------------------------------
 
 def quick_sort(arr, key):
     if len(arr) <= 1:
@@ -59,9 +54,8 @@ def quick_sort(arr, key):
 
     return quick_sort(left, key) + middle + quick_sort(right, key)
 
-# -------------------------------
+
 # HELPER FUNCTIONS
-# -------------------------------
 
 def find_route(destination):
     """BFS to find route from Warehouse to destination"""
@@ -100,9 +94,8 @@ def get_active_delivery():
             return d
     return None
 
-# -------------------------------
+
 # CORE FUNCTIONS
-# -------------------------------
 
 def register_delivery():
     print("\n--- Register Delivery ---")
@@ -297,9 +290,7 @@ def show_map():
     
     print("-" * 90)
 
-# -------------------------------
 # MAIN MENU
-# -------------------------------
 
 def main_menu():
     while True:
