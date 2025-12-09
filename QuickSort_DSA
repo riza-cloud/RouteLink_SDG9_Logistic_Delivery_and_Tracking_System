@@ -1,0 +1,10 @@
+def quick_sort(arr, key):
+  if len(arr) <= 1:
+        return arr
+
+    pivot = arr[len(arr)//2]
+    left = [x for x in arr if x[key] < pivot[key]]
+    middle = [x for x in arr if x[key] == pivot[key]]
+    right = [x for x in arr if x[key] > pivot[key]]
+
+    return quick_sort(left, key) + middle + quick_sort(right, key)
