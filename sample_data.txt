@@ -1,8 +1,24 @@
 
+Example 1
+
+Enter choice: 1
 --- Register Delivery ---
 Register Delivery
 Enter Parcel ID: 101
 Enter Sender Name: Joe
 Enter Reciever Name: Luke
 Enter Destination Location: Area B
+
+No active delivery found. Parcel 101 is now DISPATCHED
 ---
+Register Delivery
+Enter Parcel ID: 102
+Enter Sender Name: Joe
+Enter Reciever Name: Lee
+Enter Destination Location: Area E
+
+Delivery in Progress(ID: 101). Parcel 102 added to queue as PENDING.
+---\
+
+Example 2
+
