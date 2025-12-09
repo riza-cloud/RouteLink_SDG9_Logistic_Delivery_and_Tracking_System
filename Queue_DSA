@@ -1,0 +1,21 @@
+from collection import dequeue 
+
+schedule_queue = dequeue()
+
+def enqueue_delivery(record):
+schedule_queue.append(record)
+
+def get_next_pending():
+for d in schedule_queue:
+if d["status"] == "Pending":
+return d
+return None
+
+def dispatch_next_pending():
+for d in schedule_queue:
+        if d["status"] == "Pending":
+            d["status"] = "Dispatched"
+            print(f"\n>>> Next delivery auto-dispatched: ID {d['id']} to {d['destination']}")
+            return
+    print("\n>>> No pending deliveries in queue.")
+
