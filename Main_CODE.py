@@ -73,11 +73,13 @@ def find_route(destination):
         
         visited.add(current)
         
+        
         for child in routes.get(current, []):
-    if child not in visited:
-        queue.append((child, path + [child]))
-    
+            if child not in visited:
+                queue.append((child, path + [child]))
+
     return []
+
 
 def calculate_travel_time(route):
     """Calculate total travel time for a route"""
