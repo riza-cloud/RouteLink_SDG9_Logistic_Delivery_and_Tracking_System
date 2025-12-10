@@ -73,9 +73,9 @@ def find_route(destination):
         
         visited.add(current)
         
-        for neighbor in routes.get(current, []):
-            if neighbor not in visited:
-                queue.append((neighbor, path + [neighbor]))
+        for child in routes.get(current, []):
+    if child not in visited:
+        queue.append((child, path + [child]))
     
     return []
 
