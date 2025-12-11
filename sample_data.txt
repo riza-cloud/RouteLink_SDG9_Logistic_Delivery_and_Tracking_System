@@ -21,4 +21,57 @@ Delivery in Progress(ID: 101). Parcel 102 added to queue as PENDING.
 ---\
 
 Example 2
+Enter choice: 2
+--- Update Delivery Status ---
 
+Active Deliveries:
+ID: 101 - Status: Dispatched
+ID: 102 - Status: Pending
+
+Enter Parcel ID to update: 102
+Current Status: Pending
+
+Select New Status:
+[1] Pending
+[2] Dispatched
+[3] Out for Delivery
+[4] Delivered
+Enter choice (1-4): 2
+Status Updated to: Dispatched!
+
+Example 3
+Enter choice: 3
+--- Status Report Viewing ---
+Filter by Status:
+[1] Pending
+[2] Dispatched
+[3] Out for Delivery
+[4] Delivered
+[0] Show All / Reset
+[9] Back to Main Menu
+Enter choice: 3
+No out for delivery deliveries found.
+
+Example 4
+Enter choice: 4
+--- Sort Deliveries by Destination ---
+101 - Area B - Dispatched
+102 - Area E - Dispatched
+
+Example 5
+Enter choice: 5
+--- Route Map (Graph) ---
+Warehouse -> Area A, Area B
+Area A -> Area C, Area D
+Area B -> Area E, Area F
+Area C -> No outgoing routes
+Area D -> No outgoing routes
+Area E -> No outgoing routes
+Area F -> No outgoing routes
+
+--- Route Summary Table (Completed Deliveries Only) ---
+------------------------------------------------------------------------------------------
+ID         Origin          Destination     Route                          Time (min)
+------------------------------------------------------------------------------------------
+101        Warehouse       Area B          Warehouse -> Area B            4       
+------------------------------------------------------------------------------------------
