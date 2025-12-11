@@ -1,0 +1,59 @@
+from collections import deque
+
+# Graph for mapping delivery routes
+routes = {
+    "Warehouse": ["Area A", "Area B"],
+    "Area A": ["Area C", "Area D"],
+    "Area B": ["Area E", "Area F"],
+    "Area C": [],
+    "Area D": [],
+    "Area E": [],
+    "Area F": []
+}
+
+# Travel time between areas (in minutes)
+travel_times = {
+    ("Warehouse", "Area A"): 3,
+    ("Warehouse", "Area B"): 4,
+    ("Area A", "Area C"): 3,
+    ("Area A", "Area D"): 3,
+    ("Area B", "Area E"): 4,
+    ("Area B", "Area F"): 4
+}
+
+def find_route(destination):
+    """BFS to find route from Warehouse to destination"""
+    queue = deque([("Warehouse", ["Warehouse"])])
+    visited = set()
+    
+    while queue:
+        current, path = queue.popleft()
+        
+        if current == destination:
+            return path
+        
+        if current in visited:
+            continue
+        
+        visited.add(current)
+        
+        for neighbor in routes.get(current, []):
+            if neighbor not in visited:
+                queue.append((neighbor, path + [neighbor]))
+    
+    return []
+
+def calculate_travel_time(route):
+    """Calculate total travel time for a route"""
+    total_time = 0
+    for i in range(len(route) - 1):
+        edge = (route[i], route[i+1])
+        total_time += travel_times.get(edge, 0)
+    return total_time
+
+def display_route_map():
+    """Display the route map"""
+    print("\n--- Route Map (Graph) ---")
+    for place, connected in routes.items():
+        print(f"{place} -> {', '.join(connected) if connected else 'No outgoing routes'}")
+
