@@ -1,5 +1,4 @@
 from collections import deque
-from datetime import datetime
 
 # Dynamic array for storing delivery records
 # Each delivery = {id, sender, receiver, destination, status}
@@ -46,14 +45,48 @@ status_options = {
 def quick_sort(arr, key):
     if len(arr) <= 1:
         return arr
-
+     
+   # Use the first element as a simple pivot for simplicity in this context
+    pivot = arr[0]
+    pivot_val = pivot.get(key)
+    
+    # Handle the case where the key might not exist (though unlikely in this schema)
+    if pivot_val is None:
+        return arr
+        
     pivot = arr[len(arr)//2]
-    left = [x for x in arr if x[key] < pivot[key]]
-    middle = [x for x in arr if x[key] == pivot[key]]
-    right = [x for x in arr if x[key] > pivot[key]]
-
+    left = [x for x in arr if x.get(key) < pivot_val]
+    middle = [x for x in arr if x.get(key) == pivot_val]
+    right = [x for x in arr if x.get(key) > pivot_val]
+    
     return quick_sort(left, key) + middle + quick_sort(right, key)
 
+def group_sort(arr, primary_key, secondary_key):
+    """Sorts deliveries first by primary key, then by secondary key (Group Sort)"""
+    
+      groups = {}
+    for item in arr:
+        key = item.get(primary_key)
+        if key not in groups:
+            groups[key] = []
+        groups[key].append(item)
+        
+    final_sorted_list = []
+    
+    # The order of the status_options dictionary values is used for a logical sequence
+    status_order = {status: i for i, status in enumerate(status_options.values())}
+    
+    # Sort the groups by the defined order of the primary key (Status)
+    sorted_groups_keys = sorted(groups.keys(), key=lambda k: status_order.get(k, 99))
+    
+    # Sort each group by the secondary key (Destination) and combine
+    for key in sorted_groups_keys:
+        
+     # Sort each group (already filtered by status) by the secondary key (Destination)
+        sorted_group = quick_sort(groups[key], secondary_key)
+        final_sorted_list.extend(sorted_group)
+        
+    return final_sorted_list
 
 # HELPER FUNCTIONS
 
