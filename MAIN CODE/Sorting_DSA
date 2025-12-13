@@ -7,8 +7,8 @@ def quick_sort(arr, key):
     pivot = arr[0] 
     pivot_val = pivot.get(key)
     
-    if pivot_val is None:
-        return arr
+    if pivot_val is None: 
+        return arr 
         
     left = [x for x in arr if x.get(key) < pivot_val]
     middle = [x for x in arr if x.get(key) == pivot_val]
@@ -19,6 +19,7 @@ def quick_sort(arr, key):
 GROUP SORT
 
 def group_sort(arr, primary_key, secondary_key):
+    """Sorts deliveries first by primary key, then by secondary key (Group Sort)"""
     groups = {}
     for item in arr:
         key = item.get(primary_key)
@@ -33,8 +34,7 @@ def group_sort(arr, primary_key, secondary_key):
     sorted_groups_keys = sorted(groups.keys(), key=lambda k: status_order.get(k, 99))
     
     for key in sorted_groups_keys:
-        
-    sorted_group = quick_sort(groups[key], secondary_key)
-    final_sorted_list.extend(sorted_group)
+        sorted_group = quick_sort(groups[key], secondary_key)
+        final_sorted_list.extend(sorted_group)
         
     return final_sorted_list
