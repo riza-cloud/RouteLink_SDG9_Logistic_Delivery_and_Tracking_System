@@ -47,14 +47,13 @@ def quick_sort(arr, key):
         return arr
      
    # Use the first element as a simple pivot for simplicity in this context
-    pivot = arr[0]
+    pivot = arr[0] 
     pivot_val = pivot.get(key)
     
     # Handle the case where the key might not exist (though unlikely in this schema)
     if pivot_val is None:
         return arr
         
-    pivot = arr[len(arr)//2]
     left = [x for x in arr if x.get(key) < pivot_val]
     middle = [x for x in arr if x.get(key) == pivot_val]
     right = [x for x in arr if x.get(key) > pivot_val]
@@ -63,8 +62,7 @@ def quick_sort(arr, key):
 
 def group_sort(arr, primary_key, secondary_key):
     """Sorts deliveries first by primary key, then by secondary key (Group Sort)"""
-    
-      groups = {}
+    groups = {}
     for item in arr:
         key = item.get(primary_key)
         if key not in groups:
@@ -333,9 +331,9 @@ def main_menu():
         print(" LOGISTIC DELIVERY SYSTEM ")
         print("==============================")
         print("1. Register Delivery")
-        print("2. Update Delivery Status")
-        print("3. View Status Report")
-        print("4. Sort Deliveries (Quick Sort)")
+        print("2. Update Delivery Status **(Free Update)**")
+        print("3. View Status Report **(Group Sort)**")
+        print("4. Quick Sort Deliveries")
         print("5. Show Route Map (Graph)")
         print("6. Exit")
 
@@ -356,8 +354,9 @@ def main_menu():
             break
         else:
             print("Invalid choice. Try again.")
+            
+# Run the Menu
 
-# Run the system
 main_menu()
 
 
