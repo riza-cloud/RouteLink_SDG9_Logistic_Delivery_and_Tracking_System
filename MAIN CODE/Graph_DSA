@@ -11,15 +11,6 @@ routes = {
     "Area F": []
 }
 
-# Travel time between areas (in minutes)
-travel_times = {
-    ("Warehouse", "Area A"): 3,
-    ("Warehouse", "Area B"): 4,
-    ("Area A", "Area C"): 3,
-    ("Area A", "Area D"): 3,
-    ("Area B", "Area E"): 4,
-    ("Area B", "Area F"): 4
-}
 
 def find_route(destination):
     """BFS to find route from Warehouse to destination"""
