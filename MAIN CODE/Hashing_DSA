@@ -1,0 +1,27 @@
+status_options = {
+    "1": "Pending",
+    "2": "Dispatched",
+    "3": "Out for Delivery",
+    "4": "Delivered"
+}
+
+travel_times = {
+    ("Warehouse", "Area A"): 3,
+    ("Warehouse", "Area B"): 4,
+    ("Area A", "Area C"): 3,
+    ("Area A", "Area D"): 3,
+    ("Area B", "Area E"): 4,
+    ("Area B", "Area F"): 4
+}
+
+groups = {}
+for item in arr:
+    key = item.get(primary_key)
+    if key not in groups:
+        groups[key] = []
+    groups[key].append(item)
+
+if choice in status_options:
+    new_status = status_options[choice]
+
+total_time += travel_times.get(edge, 0)
