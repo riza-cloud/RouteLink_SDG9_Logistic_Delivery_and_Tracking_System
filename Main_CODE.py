@@ -224,6 +224,20 @@ def update_status():
             return
 
     print("Parcel ID not found.")
+def show_deliveries_table(arr):
+    """Helper function to display deliveries in a table"""
+    if not arr:
+        print("No deliveries to display.")
+        return
+        
+    print("-" * 75)
+    print(f"{'ID':<10} {'Sender':<15} {'Receiver':<15} {'Destination':<15} {'Status':<15}")
+    print("-" * 75)
+    
+    for d in arr:
+        print(f"{d['id']:<10} {d['sender']:<15} {d['receiver']:<15} {d['destination']:<15} {d['status']:<15}")
+    
+    print("-" * 75)
 
 def dispatch_next_pending():
     """Automatically dispatch the next pending delivery in queue"""
