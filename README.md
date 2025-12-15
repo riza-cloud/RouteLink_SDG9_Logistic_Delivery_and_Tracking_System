@@ -28,3 +28,11 @@ A Python-based logistics delivery system that addresses inefficient manual sched
 
 5. **Show Route Map**: Display graph structure and completed delivery routes with travel times.
 
+## Contributors: 
+
+**List of team members and their primary contribution/assigned
+module.**
+1. Aclan, Trisha Mae: Documentation, Introduction and Conclusion
+2. Buenaventura, Hubert: Documentation, Data Requirements and Module Breakdown
+3. Lamayo, Justine Kurt: Documentation, Problem Statement, FR and NFR
+4. Riza, Christina Alexandra: Documentation, Complexity Analysis and Justification/Implementation 
