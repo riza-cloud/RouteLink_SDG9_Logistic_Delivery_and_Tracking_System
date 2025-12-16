@@ -133,11 +133,12 @@ def get_active_delivery():
 def register_delivery():
     print("\n--- Register Delivery ---")
 
+    parcel_id = input("Enter Parcel ID: ")
+    
     if any(d['id'] == parcel_id for d in deliveries):
         print(f"Error: Parcel ID {parcel_id} already exist.")
         return
         
-    parcel_id = input("Enter Parcel ID: ")
     sender = input("Enter Sender Name: ")
     receiver = input("Enter Receiver Name: ")
     destination = input("Enter Destination Location: ")
